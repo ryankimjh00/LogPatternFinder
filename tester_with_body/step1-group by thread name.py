@@ -33,5 +33,5 @@ def main(input_file, output_file):
     write_grouped_patterns(grouped_patterns, output_file)
 
 input_file = "/mnt/c/LogPatternFinder/tester_with_body/proto/tester.log"
-output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/1.thread-grouping.txt"
+output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/12.thread-grouping.txt"
 main(input_file, output_file)

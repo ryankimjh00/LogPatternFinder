@@ -25,6 +25,13 @@ def lcp_array(words, suffix_array):
             k -= 1
     return lcp
 
+def extract_number_after_colon(pattern):
+    # 정규식을 사용하여 콜론(:) 뒤에 있는 숫자 추출
+    match = re.search(r':([0-9]+)', pattern)
+    if match:
+        return int(match.group(1))  # 매치된 그룹의 첫 번째 숫자 반환
+    return float('inf')  # 숫자가 없는 경우 무한대 반환
+
 def find_all_repeating_patterns(file_path, output_file):
     with open(file_path, 'r') as file:
         text = file.readlines()  # 줄 단위로 읽기
@@ -38,21 +45,23 @@ def find_all_repeating_patterns(file_path, output_file):
         lcp_arr = lcp_array(processed_text, suffix_arr)
         repeating_patterns = {}
         for i, lcp in enumerate(lcp_arr):
-            if lcp > 9 and lcp < 50:  # 빈 패턴이 아닌 경우
+            if lcp > 5 and lcp < 30:  # 빈 패턴이 아닌 경우
                 pattern = ''.join(processed_text[suffix_arr[i]: suffix_arr[i] + lcp])
                 if pattern in repeating_patterns:
                     repeating_patterns[pattern] += 1
                 else:
                     repeating_patterns[pattern] = 1
 
+    # 패턴을 길이에 따라 정렬하고, 각 패턴도 정렬
+    sorted_patterns = sorted(repeating_patterns.items(), key=lambda x: (extract_number_after_colon(x[0]), len(x[0]), x[0]))
+
     # 결과를 output_file에 출력
     with open(output_file, 'w') as out_file:
-        for pattern, count in repeating_patterns.items():
+        for pattern, count in sorted_patterns:
             # repeat이 2 이상인 패턴만 출력
             if count >= 1:
                 out_file.write(f"Pattern: \n{pattern}\n")
                 out_file.write(f"Repeats: {count}\n\n")
-
 file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
 output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
 find_all_repeating_patterns(file_path, output_file)
