@@ -1,7 +1,7 @@
 import re
 
 # 입력 파일 경로
-input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/999.thread-grouping.txt"
+input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/1.thread-grouping.txt"
 # 출력 파일 경로
 output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
 

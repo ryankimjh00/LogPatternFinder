@@ -3,7 +3,7 @@ import subprocess
 
 # 실행할 파일들의 경로
 file_paths = [
-    "/mnt/c/LogPatternFinder/tester_with_body/step1-group by thread name.py",
+    "/mnt/c/LogPatternFinder/tester_with_body/step1-group by thread name with no mix.py",
     "/mnt/c/LogPatternFinder/tester_with_body/step2-scale group.py",
     "/mnt/c/LogPatternFinder/tester_with_body/step3-find pattern.py",
     "/mnt/c/LogPatternFinder/tester_with_body/step4-scale pattern.py"
