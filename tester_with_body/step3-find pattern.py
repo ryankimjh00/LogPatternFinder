@@ -56,13 +56,13 @@ def find_all_repeating_patterns(file_path, output_file):
     sorted_patterns = sorted(repeating_patterns.items(), key=lambda x: (extract_number_after_colon(x[0]), len(x[0]), x[0]))
     # sorted_patterns = sorted(repeating_patterns.items(), key=lambda x: (len(x[0]), x[0]))
 
-    # 결과를 output_file에 출력
     with open(output_file, 'w') as out_file:
         for pattern, count in sorted_patterns:
-            # repeat이 2 이상인 패턴만 출력
             if count >= 2:
                 out_file.write(f"Pattern: \n{pattern}\n")
                 out_file.write(f"Repeats: {count}\n\n")
+
+                
 file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
 output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
 find_all_repeating_patterns(file_path, output_file)

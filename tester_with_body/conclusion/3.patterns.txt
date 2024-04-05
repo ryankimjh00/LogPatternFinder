@@ -139,13 +139,13 @@ dataListenerContainer-route-1 com.indigo.esb.MessageRoute:99 - Property Used Pro
 Repeats: 11
 
 Pattern: 
-
-dataListenerContainer-route-1 com.indigo.esb.MessageRoute:79 - =========================SQU-OTO Bean SU Start=========================
-dataListenerContainer-route-1 com.indigo.esb.MessageRoute:98 - Template Message ..
-dataListenerContainer-route-1 com.indigo.esb.MessageRoute:99 - Property Used Process ...
 dataListenerContainer-route-1 com.indigo.esb.MessageRoute:210 - #### routeData : {DATA_DEST_QUEUE=KMA.MQ.DB.RCV, USE_YN=Y, RCV_CD=MPS, IF_ID=IF_KMA_MPSS_C54, DESCRIPTION=기상청(AWS_MIN), DEST_ID=IF_DEST_MPSS_001, USING_IP=0.0.0.0, CHANGE_DATE=201802011322, SND_CD=KMA, RESULT_DEST_QUEUE=KMA.MQ.FILE.SND.RPL, RESULT_ARR_QUEUE=KMA.MQ.DB.RCV.RPL, DATA_ARR_QUEUE=KMA.MQ.FILE.SND, REMOTE_YN=N}
 dataListenerContainer-route-1 com.indigo.esb.MessageRoute:211 - [SQU-OTO] IF ID :IF_KMA_MPSS_C54, Queue Name :KMA.MQ.DB.RCV, Reply_Queue Name :KMA.MQ.FILE.SND.RPL, Dest ID :IF_DEST_MPSS_001
 dataListenerContainer-route-1 com.indigo.esb.MessageRoute:204 - =========================SQU-OTO Bean END=========================
+dataListenerContainer-route-1 com.indigo.esb.MessageRoute:79 - =========================SQU-OTO Bean SU Start=========================
+dataListenerContainer-route-1 com.indigo.esb.MessageRoute:98 - Template Message ..
+dataListenerContainer-route-1 com.indigo.esb.MessageRoute:99 - Property Used Process ...
+
 Repeats: 4
 
 Pattern: 
