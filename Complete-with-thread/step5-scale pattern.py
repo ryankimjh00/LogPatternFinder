@@ -19,7 +19,7 @@ with open(input_file_path, 'r') as input_file:
     # 각 줄에 대해 패턴 확인
     for line in lines:
         # "-"가 포함되어 있고 ":"가 있는 경우 또는 "Pattern: "이 있는 경우
-        if ("-" in line and ":" in line) or "Pattern: " in line:
+        if ("-" in line and ":" in line) or "Pattern: " in line or "Repeats: " in line:
             # 패턴이 "Pattern: "인 경우 줄바꿈 추가
             if "Pattern: " in line:
                 line = line.replace("Pattern: ", "------------------------------------------------------------------------------------------\nPattern:")
