@@ -28,6 +28,6 @@ def main(input_file, output_file):
     grouped_patterns = group_patterns_by_word(input_file)
     write_grouped_patterns(grouped_patterns, output_file)
 
-input_file = "/mnt/c/Log Pattern/tester/conclusion/1.cutted.txt"
-output_file = "/mnt/c/Log Pattern/tester/conclusion/2.thread-grouping.txt"
+input_file = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/1.cutted.txt"
+output_file = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/2.thread-grouping.txt"
 main(input_file, output_file)

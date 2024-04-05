@@ -1,7 +1,7 @@
 import difflib
 
 # 파일 경로
-file_path = "/mnt/c/Log Pattern/extracted_data.txt"
+file_path = "/mnt/c/LogPatternFinder/extracted_data.txt"
 
 # 파일을 읽어서 각 줄을 리스트에 저장
 with open(file_path, 'r') as file:

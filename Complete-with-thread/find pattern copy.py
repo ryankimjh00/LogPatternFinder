@@ -26,7 +26,7 @@ def find_patterns_in_sentences(file_path, pattern):
     
     return patterns_found
 
-file_path = "/mnt/c/Log Pattern/tester/conclusion/thread-grouping.txt"
+file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/thread-grouping.txt"
 pattern = r'\b\w+(?:-\w+)+\b'
 patterns_found = find_patterns_in_sentences(file_path, pattern)
 

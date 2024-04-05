@@ -40,6 +40,6 @@ def main(file_path, output_file):
                 out_file.write(f"{pattern}\n")
             out_file.write("\n")
 
-file_path = "/mnt/c/Log Pattern/tester/proto/tester.log"
-output_file = "/mnt/c/Log Pattern/tester/conclusion/1.cutted.txt"
+file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/proto/tester.log"
+output_file = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/1.cutted.txt"
 main(file_path, output_file)

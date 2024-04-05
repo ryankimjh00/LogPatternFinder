@@ -51,7 +51,7 @@ def process_file(file_path):
     return find_longest_repeating_pattern(text)
 
 # 예시 파일 경로
-file_path = "/mnt/c/Log Pattern/extracted_data11.txt"
+file_path = "/mnt/c/LogPatternFinder/extracted_data11.txt"
 longest_pattern = process_file(file_path)
 
 # 결과 출력

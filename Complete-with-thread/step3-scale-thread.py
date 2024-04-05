@@ -9,8 +9,8 @@ def filter_lines(input_file, output_file, pattern):
     with open(output_file, 'w') as f:
         f.write(' \n'.join(filtered_lines))
 
-input_file_path = "/mnt/c/Log Pattern/tester/conclusion/2.thread-grouping.txt"
-output_file_path = "/mnt/c/Log Pattern/tester/conclusion/3.thread-scaled.txt"
+input_file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/2.thread-grouping.txt"
+output_file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/3.thread-scaled.txt"
 pattern_to_keep = r'.*:.+'
 
 filter_lines(input_file_path, output_file_path, pattern_to_keep)

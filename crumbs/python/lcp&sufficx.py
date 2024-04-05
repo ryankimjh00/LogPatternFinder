@@ -50,7 +50,7 @@ def process_file(file_path):
     return find_all_repeating_patterns(text)
 
 # 예시 파일 경로
-file_path = "/mnt/c/Log Pattern/extracted_data copy.txt"
+file_path = "/mnt/c/LogPatternFinder/extracted_data copy.txt"
 all_patterns = process_file(file_path)
 
 # 결과 출력

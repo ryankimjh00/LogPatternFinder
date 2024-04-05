@@ -1,9 +1,9 @@
 import re
 
 # 입력 파일 경로
-input_file_path = "/mnt/c/Log Pattern/tester/conclusion/4.patterns.txt"
+input_file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/4.patterns.txt"
 # 출력 파일 경로
-output_file_path = "/mnt/c/Log Pattern/tester/conclusion/5.conclusion.txt"
+output_file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/5.conclusion.txt"
 
 # 정규 표현식
 pattern = r":\d+ "
@@ -34,5 +34,3 @@ with open(input_file_path, 'r') as input_file:
 # 출력 파일에 쓰기
 with open(output_file_path, 'w') as output_file:
     output_file.write(new_content)
-
-print("작업 완료.")

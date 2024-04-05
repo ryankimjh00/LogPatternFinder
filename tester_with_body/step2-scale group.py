@@ -1,9 +1,9 @@
 import re
 
 # 입력 파일 경로
-input_file_path = "/mnt/c/Log Pattern/tester_with_body/conclusion/999.thread-grouping.txt"
+input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/999.thread-grouping.txt"
 # 출력 파일 경로
-output_file_path = "/mnt/c/Log Pattern/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
+output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
 
 # 첫 번째 정규식 패턴
 pattern1 = r'\[\d{2}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}\] \[[A-Z]+ \]  '

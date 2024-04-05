@@ -1,9 +1,9 @@
 import re
 
 # 입력 파일 경로
-input_file_path = "/mnt/c/Log Pattern/tester_with_body/conclusion/3.patterns.txt"
+input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
 # 출력 파일 경로
-output_file_path = "/mnt/c/Log Pattern/tester_with_body/conclusion/4.conclusion.txt"
+output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/4.conclusion.txt"
 
 # 정규 표현식
 pattern = r":\d+ "

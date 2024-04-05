@@ -31,6 +31,6 @@ def main(input_file, output_file):
     grouped_patterns = group_patterns_by_word(input_file)
     write_grouped_patterns(grouped_patterns, output_file)
 
-input_file = "/mnt/c/Log Pattern/tester_with_body/proto/tester.log"
-output_file = "/mnt/c/Log Pattern/tester_with_body/conclusion/999.thread-grouping.txt"
+input_file = "/mnt/c/LogPatternFinder/tester_with_body/proto/tester.log"
+output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/999.thread-grouping.txt"
 main(input_file, output_file)

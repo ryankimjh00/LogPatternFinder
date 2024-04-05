@@ -15,6 +15,6 @@ def main(file_path, output_file):
     with open(output_file, 'w') as out_file:
         out_file.write(filtered_text)
 
-file_path = "/mnt/c/Log Pattern/extract2.txt"
+file_path = "/mnt/c/LogPatternFinder/extract2.txt"
 output_file = "filtered_text.txt"
 main(file_path, output_file)

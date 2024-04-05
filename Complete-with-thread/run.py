@@ -3,11 +3,11 @@ import subprocess
 
 # 실행할 파일들의 경로
 file_paths = [
-    "/mnt/c/Log Pattern/tester/step1-cut thread in log file.py",
-    "/mnt/c/Log Pattern/tester/step2-group by thread name.py",
-    "/mnt/c/Log Pattern/tester/step3-scale-thread.py",
-    "/mnt/c/Log Pattern/tester/step4-find pattern.py",
-    "/mnt/c/Log Pattern/tester/step5-scale pattern.py"
+    "/mnt/c/LogPatternFinder/Complete-with-thread/step1-cut thread in log file.py",
+    "/mnt/c/LogPatternFinder/Complete-with-thread/step2-group by thread name.py",
+    "/mnt/c/LogPatternFinder/Complete-with-thread/step3-scale-thread.py",
+    "/mnt/c/LogPatternFinder/Complete-with-thread/step4-find pattern.py",
+    "/mnt/c/LogPatternFinder/Complete-with-thread/step5-scale pattern.py"
 ]
 
 # 각 파일을 순차적으로 실행

@@ -1,8 +1,8 @@
 import re
 
 # 파일 경로
-file_path = "/mnt/c/Log Pattern/extracted_data.txt"
-output_file_path = "/mnt/c/Log Pattern/thread_count_result2.txt"
+file_path = "/mnt/c/LogPatternFinder/extracted_data.txt"
+output_file_path = "/mnt/c/LogPatternFinder/thread_count_result2.txt"
 
 # 이전 스레드 정보
 previous_thread = None

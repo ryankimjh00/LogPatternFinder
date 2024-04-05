@@ -76,7 +76,7 @@ def process_file(input_file_path):
 
     return longest_pattern
 
-input_file_path = "/mnt/c/Log Pattern/완성/test.log"
+input_file_path = "/mnt/c/LogPatternFinder/완성/test.log"
 # 추출된 데이터로부터 최장 반복 패턴 찾기
 longest_pattern = process_file(input_file_path)
 print("========================== 패턴 분석 결과 ==========================")

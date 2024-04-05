@@ -1,7 +1,7 @@
 import re
 
 # 파일 경로
-file_path = "/mnt/c/Log Pattern/extracted_data.txt"
+file_path = "/mnt/c/LogPatternFinder/extracted_data.txt"
 
 # 정규 표현식 패턴
 pattern = r" .*:*"

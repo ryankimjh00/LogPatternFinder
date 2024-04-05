@@ -1,8 +1,8 @@
 import re
 
 # 파일 경로
-input_file_path = "/mnt/c/Log Pattern/Road-info.log"
-output_file_path = "/mnt/c/Log Pattern/extracted_data11.txt"
+input_file_path = "/mnt/c/LogPatternFinder/Road-info.log"
+output_file_path = "/mnt/c/LogPatternFinder/extracted_data11.txt"
 
 # 정규 표현식 패턴
 pattern = r"\[.*?\] \[.*?\] \[(\w*-+.*?)\]"
