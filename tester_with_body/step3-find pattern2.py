@@ -1,5 +1,5 @@
 import re
-
+# 이거 거의 된듯?
 def suffix_array(words):
     n = len(words)
     suffixes = [(words[i:], i) for i in range(n)]
@@ -25,40 +25,41 @@ def lcp_array(words, suffix_array):
             k -= 1
     return lcp
 
+def extract_number_after_colon(pattern):
+    match = re.search(r':([0-9]+)', pattern)
+    if match:
+        return match.group(1) 
+    return 'inf'
+
 def find_all_repeating_patterns(file_path, output_file):
     with open(file_path, 'r') as file:
-        text = file.read().strip().split()  # 줄바꿈으로 구분되는 단어로 분리
+        text = file.readlines() 
         processed_text = []
-        for word in text:
-            if re.match(r'\d+:', word):  # 콜론(:)뒤에 숫자가 오면 줄바꿈 추가
-                processed_text.append(word + '\n')
-            else:
-                processed_text.append(word)
+        for line in text: 
+            text_for_pattern = re.findall(r'\[(.*?)\ ]', line)  # 패턴을 찾기 위한 텍스트
+            remain_text = re.split(r'\[(.*?)\ ]', line)  # 패턴과 매칭되지 않는 텍스트를 분리합니다.
+            remain_text = [text for text in remain_text if text not in text_for_pattern and text != '']  # 패턴과 매칭되지 않은 텍스트만 선택합니다.
+            processed_text.extend(text_for_pattern + remain_text)  # 패턴과 매칭되는 텍스트를 찾고 나머지 텍스트를 처리하여 리스트에 추가합니다.
         suffix_arr = suffix_array(processed_text)
         lcp_arr = lcp_array(processed_text, suffix_arr)
         repeating_patterns = {}
         for i, lcp in enumerate(lcp_arr):
-            if lcp > 5 and lcp < 20:  # 4개 이상의 단어로 이루어진 패턴만 선택
-                pattern = ' '.join(processed_text[suffix_arr[i]: suffix_arr[i] + lcp])
+            if lcp:  # 빈 패턴이 아닌 경우
+                pattern = ''.join(processed_text[suffix_arr[i]: suffix_arr[i] + lcp])
                 if pattern in repeating_patterns:
                     repeating_patterns[pattern] += 1
                 else:
                     repeating_patterns[pattern] = 1
 
-    # 패턴을 짧은 순서대로 정렬하여 출력
-    sorted_patterns = sorted(repeating_patterns.items(), key=lambda x: len(x[0]))
+    sorted_patterns = sorted(repeating_patterns.items(), key=lambda x: (extract_number_after_colon(x[0]), len(x[0]), x[0]))
 
-    # 결과를 output_file에 출력
     with open(output_file, 'w') as out_file:
         for pattern, count in sorted_patterns:
-            
-            # out_file.write(f"Repeats: {count}\n\n")
-
-            # 패턴이 한 번 이상 반복될 때만 반복 횟수를 출력
-            if count >= 1:
+            if count >= 2:
                 out_file.write(f"Pattern: \n{pattern}\n")
                 out_file.write(f"Repeats: {count}\n\n")
 
-file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/3.thread-scaled.txt"
-output_file = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/4.patterns.txt"
+                
+file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
+output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
 find_all_repeating_patterns(file_path, output_file)

@@ -6,7 +6,7 @@ input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.pattern
 output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/4.conclusion.txt"
 
 # 정규 표현식
-pattern = r":\d+ "
+pattern = r":\d+ |\b\w*-OTO\w*\b"  # 수정된 부분
 
 # 입력 파일 열기
 with open(input_file_path, 'r') as input_file:
@@ -29,7 +29,7 @@ with open(input_file_path, 'r') as input_file:
     content = ''.join(filtered_lines)
 
     # 정규 표현식에 매칭되는 패턴을 찾아서 줄바꿈 추가
-    new_content = re.sub(pattern, lambda match: match.group(0) , content)
+    new_content = re.sub(pattern, lambda match: match.group(0) if match.group(0) != '-OTO' else '', content)  # 수정된 부분
 
 # 출력 파일에 쓰기
 with open(output_file_path, 'w') as output_file:

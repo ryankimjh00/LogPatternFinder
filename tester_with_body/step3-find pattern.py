@@ -36,7 +36,7 @@ def find_all_repeating_patterns(file_path, output_file):
     with open(file_path, 'r') as file:
         text = file.readlines()  # 줄 단위로 읽기
         processed_text = []
-        for line in text:
+        for line in text: # text까지는 멀쩡
             # matches = re.findall(r'\[(.*?)\ ]', line)
             # for match in matches:
             #     processed_text.append(match)
@@ -45,7 +45,7 @@ def find_all_repeating_patterns(file_path, output_file):
         lcp_arr = lcp_array(processed_text, suffix_arr)
         repeating_patterns = {}
         for i, lcp in enumerate(lcp_arr):
-            if lcp > 5 and lcp < 30:  # 빈 패턴이 아닌 경우
+            if lcp:  # 빈 패턴이 아닌 경우
                 pattern = ''.join(processed_text[suffix_arr[i]: suffix_arr[i] + lcp])
                 if pattern in repeating_patterns:
                     repeating_patterns[pattern] += 1
