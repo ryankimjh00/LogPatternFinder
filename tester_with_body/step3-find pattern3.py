@@ -44,7 +44,7 @@ def find_all_repeating_patterns(file_path, output_file):
         lcp_arr = lcp_array(processed_text, suffix_arr)
         repeating_patterns = {}
         for i, lcp in enumerate(lcp_arr):
-            if lcp:  # 빈 패턴이 아닌 경우
+            if lcp > 1 and lcp < 10:  # 빈 패턴이 아닌 경우
                 pattern = '\n'.join(processed_text[suffix_arr[i]: suffix_arr[i] + lcp])
                 if pattern in repeating_patterns:
                     repeating_patterns[pattern] += 1
