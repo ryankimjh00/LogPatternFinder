@@ -7,7 +7,7 @@ def group_patterns_by_word(file_path):
 
     grouped_patterns = {}
     for line in lines:
-        matches = re.findall(r'\b\w+(?:-\w+)+\b', line)
+        matches = re.findall(r'\b\w+(?:-\d+)', line)
         
         for match in matches:
             if match in grouped_patterns:

@@ -8,10 +8,10 @@ def scale_group(input_file_path, output_file_path):
     output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
 
     # 첫 번째 정규식 패턴
-    pattern1 = r'\[\d{2}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}\] \[[A-Z]+ \]  '
+    pattern1 = r'\[\d{2}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}\] \[[A-Z]+ \] '
 
     # 두 번째 정규식 패턴
-    pattern2 = r'\[\d{2}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}\] \[[A-Z]+\]  '
+    pattern2 = r'\[\d{2}\.\d{2}\.\d{2} \d{2}:\d{2}:\d{2}\] \[[A-Z]+\] '
 
     # 입력 파일 열기
     with open(input_file_path, 'r') as input_file:

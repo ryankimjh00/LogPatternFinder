@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./tester_with_body",
+        "./tester_with_body/helpers"
+    ]
+}

@@ -2,13 +2,10 @@ import re
 
 def scale_patterns(input_file_path, output_file_path):
     print("found file to scale")
-    # 입력 파일 경로
-    input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
-    # 출력 파일 경로
-    output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/4.conclusion.txt"
 
     # 정규 표현식
-    pattern = r":\d+ |\b\w*-OTO\w*\b"  # 수정된 부분
+    # pattern = r"\b\w+(?:-\w+)+\w+(?:-\w+)+\b " 
+    pattern = r"\b\w+(?:-\d+)" 
 
     # 입력 파일 열기
     with open(input_file_path, 'r') as input_file:
@@ -31,9 +28,15 @@ def scale_patterns(input_file_path, output_file_path):
         content = ''.join(filtered_lines)
 
         # 정규 표현식에 매칭되는 패턴을 찾아서 줄바꿈 추가
-        new_content = re.sub(pattern, lambda match: match.group(0) if match.group(0) != '-OTO' else '', content)  # 수정된 부분
+        new_content = re.sub(pattern, lambda match: match.group(0) if match.group(0) != '-OTO' else '', content)
 
     # 출력 파일에 쓰기
     with open(output_file_path, 'w') as output_file:
         output_file.write(new_content)
     print("scaling done")
+
+# 입력 파일 경로
+input_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
+# 출력 파일 경로
+output_file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/4.conclusion.txt"
+scale_patterns(input_file_path, output_file_path)

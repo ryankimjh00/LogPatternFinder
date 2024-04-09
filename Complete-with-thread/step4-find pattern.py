@@ -38,7 +38,7 @@ def find_all_repeating_patterns(file_path, output_file):
         lcp_arr = lcp_array(processed_text, suffix_arr)
         repeating_patterns = {}
         for i, lcp in enumerate(lcp_arr):
-            if lcp > 5 and lcp < 20:  # 4개 이상의 단어로 이루어진 패턴만 선택
+            if lcp > 5 and lcp < 23:  # 4개 이상의 단어로 이루어진 패턴만 선택
                 pattern = ' '.join(processed_text[suffix_arr[i]: suffix_arr[i] + lcp])
                 if pattern in repeating_patterns:
                     repeating_patterns[pattern] += 1
