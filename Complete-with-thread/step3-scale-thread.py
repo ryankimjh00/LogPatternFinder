@@ -7,7 +7,7 @@ def filter_lines(input_file, output_file, pattern):
     filtered_lines = [line.strip() for line in lines if re.search(pattern, line)]
     
     with open(output_file, 'w') as f:
-        f.write(' \n'.join(filtered_lines))
+        f.write('\n'.join(filtered_lines))
 
 input_file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/2.thread-grouping.txt"
 output_file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/3.thread-scaled.txt"
