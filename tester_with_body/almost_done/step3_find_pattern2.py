@@ -1,5 +1,5 @@
 import re
-from helper_functions import suffix_array, lcp_array, extract_number_after_colon
+from patterns.helper_functions import suffix_array, lcp_array, extract_number_after_colon
 
 def find_all_repeating_patterns(file_path, output_file):
     print("Finding repeating patterns...")

@@ -1,4 +1,3 @@
-import math
 import re
 from helper_functions import suffix_array, lcp_array, extract_number_after_colon
 
@@ -13,16 +12,6 @@ def find_all_repeating_patterns(file_path, output_file):
             text_for_pattern = re.findall(r'\[(.*?)\ ]', line)  # 패턴을 찾기 위한 텍스트
             remain_text = re.split(r'\[(.*?)\ ]', line)  # 패턴과 매칭되지 않는 텍스트를 분리합니다.
             remain_text = [text for text in remain_text if text != '']  # 패턴과 매칭되지 않은 텍스트만 선택합니다.
-            
-            # remain_text 출력
-            if remain_text:
-                print(f"remain_text ({line_index}): {', '.join([f'{text}({line_index})' for text in remain_text])}")
-            
-            # text_for_pattern 출력
-            if text_for_pattern:
-                print(f"text_for_pattern ({line_index}): {', '.join([f'{text}({line_index})' for text in text_for_pattern])}")
-            
-            # 나머지 로직은 동일하게 유지합니다.
             line_indices.extend([line_index] * len(text_for_pattern))  # 각 텍스트의 원본 라인 인덱스를 저장합니다.
             line_counts.extend([len(text_for_pattern)] * len(text_for_pattern))  # 각 텍스트의 라인 수를 저장합니다.
             if remain_text:  # 패턴이 아닌 텍스트가 있는 경우에만 추가합니다.
@@ -49,7 +38,7 @@ def find_all_repeating_patterns(file_path, output_file):
         for pattern, indices in sorted_patterns:
             if len(indices) >= 2:
                 out_file.write(f"Pattern: \n{pattern}\n")
-                out_file.write("Start Line Indices: " + ", ".join([f"{index[0]+1}({math.ceil(index[1]/2)})" for index in sorted(indices, key=lambda x: x[0])]) + "\n")
+                out_file.write("Start Line Indices: " + ", ".join([f"{index[0]+1}({index[1]+1})" for index in sorted(indices, key=lambda x: x[0])]) + "\n")
                 out_file.write(f"Repeats: {len(indices)}\n\n")
     print("Repeating patterns found")
 

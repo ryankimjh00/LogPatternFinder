@@ -32,6 +32,6 @@ def find_all_repeating_patterns(file_path, output_file):
     print("Repeating patterns found")
 
                 
-file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/2.thread-grouping-cleaned.txt"
+file_path = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/1.thread-grouping.txt"
 output_file = "/mnt/c/LogPatternFinder/tester_with_body/conclusion/3.patterns.txt"
 find_all_repeating_patterns(file_path, output_file)
