@@ -35,6 +35,6 @@ def find_all_repeating_patterns(file_path, output_file):
                 out_file.write(f"Pattern: \n{pattern}\n")
                 out_file.write(f"Repeats: {count}\n\n")
 
-file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/3.thread-scaled.txt"
+file_path = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/1.cutted.txt"
 output_file = "/mnt/c/LogPatternFinder/Complete-with-thread/conclusion/4.patterns.txt"
 find_all_repeating_patterns(file_path, output_file)
