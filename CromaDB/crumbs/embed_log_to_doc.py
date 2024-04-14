@@ -3,16 +3,16 @@ from chromadb.utils import embedding_functions
 import re
 
 CHROMA_DATA_PATH = "chroma_data/"
-EMBED_MODEL = "all-MiniLM-L6-v2"
-COLLECTION_NAME = "test3"
+MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "test3"
 FILE_NAME = "/mnt/c/LogPatternFinder/CromaDB/log/tester.log"
 
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
 client = chromadb.HttpClient(host='localhost', port=8001)
 collection = client.get_or_create_collection(
-    name=COLLECTION_NAME, embedding_function=embedding_func
+    name=COLLECTION, embedding_function=embedding_func
 )
 
 def preprocess_log(file_path):
@@ -47,7 +47,7 @@ def preprocess_log_lines(lines):
 log_file_path = FILE_NAME
 
 collection = client.get_or_create_collection(
-    name=COLLECTION_NAME,
+    name=COLLECTION,
     embedding_function=embedding_func,
     metadata={"hnsw:space": "cosine"}
 )

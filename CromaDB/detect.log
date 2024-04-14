@@ -2,5 +2,5 @@
 거리: 0.6706437468528748, 원본로그: [.. ::] [ERROR]  [quartzScheduler_Worker- org.quartz.core.ErrorLogger: ] - Job (crawler.kr_tunnel_detail threw an exception.
 거리: 0.6706437468528748, 원본로그: [.. ::] [ERROR]  [quartzScheduler_Worker- org.quartz.core.ErrorLogger: ] - Job (crawler.kr_tunnel_detail threw an exception.
 거리: 0.6706437468528748, 원본로그: [.. ::] [ERROR]  [quartzScheduler_Worker- org.quartz.core.ErrorLogger: ] - Job (crawler.kr_tunnel_detail threw an exception.
-거리: 0.6923472871124727, 원본로그: [.. ::] [ERROR]  [quartzScheduler_Worker- org.quartz.core.JobRunShell: ] - Job crawler.cc_road_permission threw an unhandled Exception:
+거리: 0.6878107786178589, 원본로그: [.. ::] [ERROR]  [quartzScheduler_Worker- org.quartz.core.JobRunShell: ] - Job crawler.cc_road_permission threw an unhandled Exception:
 거리: 0.5222129821777344, 원본로그: [.. ::] [WARN ]  [pool--thread- com.mb.indigo.imagent.HeartbeatAgent: ] - ../../im/pid/ROAD_INFO_COLLECTION_ADAPTOR (그런 파일이나 디렉터리가 없습니다)

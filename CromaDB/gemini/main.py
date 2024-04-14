@@ -62,7 +62,7 @@ def get_gemini_response(query: str, context: List[str]) -> str:
 
 
 def main(
-    collection_name: str = "documents_collection", persist_directory: str = "."
+    COLLECTION: str = "documents_collection", persist_directory: str = "."
 ) -> None:
     # Check if the GOOGLE_API_KEY environment variable is set. Prompt the user to set it if not.
     google_api_key = None
@@ -83,7 +83,7 @@ def main(
 
     # Get the collection.
     collection = client.get_collection(
-        name=collection_name, embedding_function=embedding_function
+        name=COLLECTION, embedding_function=embedding_function
     )
 
     # We use a simple input loop.
@@ -129,7 +129,7 @@ if __name__ == "__main__":
         help="The directory where you want to store the Chroma collection",
     )
     parser.add_argument(
-        "--collection_name",
+        "--COLLECTION",
         type=str,
         default="documents_collection",
         help="The name of the Chroma collection",
@@ -139,6 +139,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(
-        collection_name=args.collection_name,
+        COLLECTION=args.COLLECTION,
         persist_directory=args.persist_directory,
     )

@@ -14,15 +14,15 @@ def preprocess_document(document):
 
 def main(
     documents_directory: str = "documents",
-    collection_name: str = "documents_collection",
+    COLLECTION: str = "documents_collection",
 ) -> None:
     # Instantiate a persistent chroma client in the persist_directory.
     # Learn more at docs.trychroma.com
     client = chromadb.HttpClient(host='localhost', port=8001)
 
     # Delete existing collection if it exists
-    client.delete_collection(collection_name)
-    print(f"Collection '{collection_name}' already existed and has been deleted.")
+    client.delete_collection(COLLECTION)
+    print(f"Collection '{COLLECTION}' already existed and has been deleted.")
 
     google_api_key = None
     if "GOOGLE_API_KEY" not in os.environ:
@@ -37,7 +37,7 @@ def main(
 
     # If the collection does not exist, create it
     collection = client.get_or_create_collection(
-        name=collection_name, embedding_function=embedding_function
+        name=COLLECTION, embedding_function=embedding_function
     )
 
     # Read all files in the data directory
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         help="The directory where your text files are stored",
     )
     parser.add_argument(
-        "--collection_name",
+        "--COLLECTION",
         type=str,
         default="documents_collection",
         help="The name of the Chroma collection",
@@ -107,5 +107,5 @@ if __name__ == "__main__":
 
     main(
         documents_directory=args.data_directory,
-        collection_name=args.collection_name,
+        COLLECTION=args.COLLECTION,
     )

@@ -8,13 +8,13 @@ from concurrent.futures import ProcessPoolExecutor
 import chardet # 패키지 설치 필요(encode 변환)
 
 CHROMA_DATA_PATH = "chroma_data/"
-EMBED_MODEL = "all-MiniLM-L6-v2"
-COLLECTION_NAME = "cosine"
-FOLDER_PATH = "log"
+MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "cosine"
+DATA = "log"
 
 #embedding 모델 정의
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
 
 #client가 사용할 데이터 파일 선택
@@ -23,7 +23,7 @@ client = chromadb.HttpClient(host='localhost', port=8001)
 
 # Get a collection object from an existing collection, by name. If it doesn't exist, create it.
 collection = client.get_or_create_collection(
-    name=COLLECTION_NAME,
+    name=COLLECTION,
     embedding_function=embedding_func,
     metadata={"hnsw:space": "cosine"}, #사용 알고리즘 정의 가능
 )
@@ -52,16 +52,16 @@ current_time = None
 current_min = None
 index = 1
 
-def read_log_file(folder_path):
+def read_log_file(DATA):
     global result
     global current_time
     global current_min
 
 
-    for file_name in os.listdir(folder_path):
-        to_utf8(os.path.join(folder_path, file_name), is_encoded(os.path.join(folder_path, file_name)))
+    for file_name in os.listdir(DATA):
+        to_utf8(os.path.join(DATA, file_name), is_encoded(os.path.join(DATA, file_name)))
         print(file_name)
-        with open(os.path.join(folder_path, file_name), 'r', encoding='UTF-8') as file:
+        with open(os.path.join(DATA, file_name), 'r', encoding='UTF-8') as file:
             
             for line in file:
                 sliding_window_30_sec(line)
@@ -151,7 +151,7 @@ def sliding_window_30_sec(log_events):
 
 if __name__ == "__main__":
     
-    read_log_file(FOLDER_PATH)
+    read_log_file(DATA)
     print("SUCCESS")
     print(collection.count())
     

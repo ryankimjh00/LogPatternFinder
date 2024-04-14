@@ -5,16 +5,16 @@ import time
 
 
 CHROMA_DATA_PATH = "chroma_data/"
-COLLECTION_NAME = "cosine"
-EMBED_MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "cosine"
+MODEL = "all-MiniLM-L6-v2"
 
 
 client = chromadb.HttpClient(host='localhost', port=8001)
 
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
-collection = client.get_collection(name=COLLECTION_NAME, embedding_function=embedding_func)
+collection = client.get_collection(name=COLLECTION, embedding_function=embedding_func)
 
 start = time.time()
 results = collection.query(

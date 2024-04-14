@@ -4,13 +4,13 @@ import pandas as pd
 import json
 
 CHROMA_DATA_PATH = "chroma_data/"
-EMBED_MODEL = "all-MiniLM-L6-v2"
-COLLECTION_NAME = "test3"
+MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "test3"
 FILE_NAME = "/mnt/c/LogPatternFinder/CromaDB/client/chroma_data/testData.json"
 
 #embedding 모델 정의
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
 
 #client가 사용할 데이터 파일 선택
@@ -18,7 +18,7 @@ client = chromadb.HttpClient(host='localhost', port=8001)
 
 #collection 생성
 collection = client.get_or_create_collection(
-    name=COLLECTION_NAME,
+    name=COLLECTION,
     embedding_function=embedding_func,
     metadata={"hnsw:space": "cosine"}, #사용 알고리즘 정의 가능
 )
@@ -49,14 +49,14 @@ if __name__ == "__main__":
         for collection in collections:
             print(collection)
     except SyntaxError :
-        client.delete_collection(COLLECTION_NAME)
+        client.delete_collection(COLLECTION)
         print(f's fail')
     except NameError :
-        client.delete_collection(COLLECTION_NAME)
+        client.delete_collection(COLLECTION)
         print(f'n fail')
     except IndexError :
-        client.delete_collection(COLLECTION_NAME)
+        client.delete_collection(COLLECTION)
         print(f'i fail')
     except AttributeError  :
-        client.delete_collection(COLLECTION_NAME)
+        client.delete_collection(COLLECTION)
         print(f'a fail')

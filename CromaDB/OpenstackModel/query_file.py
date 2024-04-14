@@ -2,17 +2,17 @@ import chromadb
 from chromadb.utils import embedding_functions
 
 CHROMA_DATA_PATH = "chroma_data/"
-COLLECTION_NAME = "cosine"
-EMBED_MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "cosine"
+MODEL = "all-MiniLM-L6-v2"
 EXCEPTION_LOG_PATH = "/mnt/c/LogPatternFinder/CromaDB/output.log"
 RESULT_OUTPUT_PATH = "result.log"
 
 client = chromadb.HttpClient(host='localhost', port=8001)
 
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
-collection = client.get_collection(name=COLLECTION_NAME, embedding_function=embedding_func)
+collection = client.get_collection(name=COLLECTION, embedding_function=embedding_func)
 
 # 결과를 담을 리스트
 result_list = []

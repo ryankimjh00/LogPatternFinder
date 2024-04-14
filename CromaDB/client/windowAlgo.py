@@ -7,15 +7,15 @@ import json
 from concurrent.futures import ProcessPoolExecutor
 
 CHROMA_DATA_PATH = "chroma_data/"
-EMBED_MODEL = "all-MiniLM-L6-v2"
-COLLECTION_NAME = "log_collection"
-FOLDER_PATH = "log"
+MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "log_collection"
+DATA = "log"
 
 date_format = '%y.%m.%d %H:%M:%S'
 
 #embedding 모델 정의
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
 
 #client가 사용할 데이터 파일 선택
@@ -24,7 +24,7 @@ client = chromadb.HttpClient(host='localhost', port=8001)
 
 # Get a collection object from an existing collection, by name. If it doesn't exist, create it.
 collection = client.get_or_create_collection(
-    name=COLLECTION_NAME,
+    name=COLLECTION,
     embedding_function=embedding_func,
     metadata={"hnsw:space": "cosine"}, #사용 알고리즘 정의 가능
 )
@@ -75,5 +75,5 @@ if __name__ == "__main__":
         for collection in collections:
             print(collection)
     except (SyntaxError, NameError, IndexError, AttributeError) as e:
-        client.delete_collection(COLLECTION_NAME)
+        client.delete_collection(COLLECTION)
         print(f'Failed due to {type(e).__name__}')

@@ -5,14 +5,14 @@ import chromadb
 from chromadb.utils import embedding_functions
 
 # 경로 설정
-CHROMA_DATA_PATH = "chroma_data/"
-EMBED_MODEL = "all-MiniLM-L6-v2"
-COLLECTION_NAME = "cosine"
-FOLDER_PATH = "/mnt/c/LogPatternFinder/CromaDB/log"
+# CHROMA_DATA_PATH = "chroma_data/"
+MODEL = "all-MiniLM-L6-v2"
+COLLECTION = "cosine"
+DATA = "/mnt/c/LogPatternFinder/CromaDB/log"
 
 # 임베딩 모델 정의
 embedding_func = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name=EMBED_MODEL
+    model_name=MODEL
 )
 
 # ChromaDB 클라이언트 초기화
@@ -20,7 +20,7 @@ client = chromadb.HttpClient(host='localhost', port=8001)
 
 # 컬렉션 가져오거나 생성
 collection = client.get_or_create_collection(
-    name=COLLECTION_NAME,
+    name=COLLECTION,
     embedding_function=embedding_func,
     metadata={"hnsw:space": "cosine"},
 )
@@ -44,9 +44,9 @@ def convert_to_utf8(file_path, encoding):
         print('Failed to convert encoding')
 
 # 로그 파일을 읽어와 처리하는 함수
-def read_log_files(folder_path):
-    for file_name in tqdm(os.listdir(folder_path), desc="Processing Files"):
-        file_path = os.path.join(folder_path, file_name)
+def read_log_files(DATA):
+    for file_name in tqdm(os.listdir(DATA), desc="Processing Files"):
+        file_path = os.path.join(DATA, file_name)
         encoding = detect_encoding(file_path)
         convert_to_utf8(file_path, encoding)
 
@@ -67,6 +67,6 @@ def process_log_events(file):
 
 # 메인 함수
 if __name__ == "__main__":
-    read_log_files(FOLDER_PATH)
+    read_log_files(DATA)
     print("SUCCESS")
     print("Total documents in collection:", collection.count())
