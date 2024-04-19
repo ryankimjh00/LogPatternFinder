@@ -11,3 +11,4 @@ CromaDB/OpenstackModel/in
 CromaDB/OpenstackModel/out
 gensim/test/in
 gensim/test/out
+gensim/test/embed
