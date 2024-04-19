@@ -3,8 +3,8 @@ from chromadb.utils import embedding_functions
 
 COLLECTION = "cosine"
 MODEL = "all-MiniLM-L6-v2"
-OUTPUT_LOG_PATH = "/mnt/c/LogPatternFinder/CromaDB/output.log"
-DETECT_LOG_PATH = "/mnt/c/LogPatternFinder/CromaDB/detect.log"
+DETECT_LOG_PATH = "/mnt/c/LogPatternFinder/CromaDB/detect.txt"
+OUTPUT_LOG_PATH = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/detection_out/log_2011.12.19 19:26:02.txt"
 THRESHOLD = 0.5 
 
 client = chromadb.HttpClient(host='localhost', port=8001)

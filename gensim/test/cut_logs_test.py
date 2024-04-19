@@ -47,11 +47,11 @@ def split_logs_with_overlap(input_file, output_directory, embed_directory):
 # 모든 경로 내의 모든 *.log.* 파일을 찾아 처리하는 함수
 def process_all_log_files(directory):
     log_files = glob.glob(os.path.join(directory, '*.log.*'))
-    output_directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/out"
-    embed_directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/embed"
+    output_directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/test/out"
+    embed_directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/test/embed"
     for log_file in log_files:
         split_logs_with_overlap(log_file, output_directory, embed_directory)
 
 # 모든 경로 내의 모든 *.log.* 파일을 처리
-directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/in"
+directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/test/in"
 process_all_log_files(directory)

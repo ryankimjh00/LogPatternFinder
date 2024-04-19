@@ -1,0 +1,13 @@
+LogEmbeddings/mixed_docs
+LogEmbeddings/normal_docs
+LogEmbeddings/input
+CromaDB/log
+CromaDB/OpenstackModel/detection_out
+CromaDB/OpenstackModel/embed
+CromaDB/OpenstackModel/test/out
+CromaDB/OpenstackModel/test/embed
+CromaDB/OpenstackModel/test/in
+CromaDB/OpenstackModel/in
+CromaDB/OpenstackModel/out
+gensim/test/in
+gensim/test/out

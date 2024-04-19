@@ -15,8 +15,7 @@ def extract_timestamp(log_line):
 def remove_numbers(log_line):
     return re.sub(r'\d+', '', log_line)
 
-# 로그 파일을 읽고 30초 간격으로 자르고 10초씩 겹치게 하는 함수
-def split_logs_with_overlap(input_file, output_directory, embed_directory):
+def split_logs_with_overlap(input_file, output_directory, total_files, current_file_index):
     with open(input_file, 'r') as file:
         lines = file.readlines()
 
@@ -24,7 +23,7 @@ def split_logs_with_overlap(input_file, output_directory, embed_directory):
     end_time = extract_timestamp(lines[-1])
 
     if start_time is None or end_time is None:
-        print("Failed to extract timestamps from log lines.")
+        print(f'❌ Failed to extract timestamps from log lines on {input_file}')
         return
 
     current_time = start_time
@@ -33,25 +32,23 @@ def split_logs_with_overlap(input_file, output_directory, embed_directory):
 
     while current_time + interval <= end_time:
         file_name = os.path.join(output_directory, f"log_{current_time.strftime('%Y.%m.%d %H:%M:%S')}.txt")
-        embed_file_name = os.path.join(embed_directory, f"log_{current_time.strftime('%Y.%m.%d %H:%M:%S')}.txt")
-        with open(file_name, 'w') as output_file, open(embed_file_name, 'w') as embed_file:
+        with open(file_name, 'w') as output_file:
             for line in lines:
                 timestamp = extract_timestamp(line)
                 if timestamp and current_time <= timestamp < current_time + interval:
-                    if "INFO" in line or "DEBUG" in line:
-                        output_file.write(remove_numbers(line))
-                    else:
-                        embed_file.write(remove_numbers(line))
+                    # if "INFO" in line or "DEBUG" in line:
+                    output_file.write(remove_numbers(line))
         current_time += interval - overlap
 
-# 모든 경로 내의 모든 *.log.* 파일을 찾아 처리하는 함수
+    print(f'✅ Completed processing file {current_file_index} of {total_files}: {input_file}')
+
 def process_all_log_files(directory):
     log_files = glob.glob(os.path.join(directory, '*.log.*'))
-    output_directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/out"
-    embed_directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/embed"
-    for log_file in log_files:
-        split_logs_with_overlap(log_file, output_directory, embed_directory)
+    output_directory = "/mnt/c/LogPatternFinder/LogEmbeddings/mixed_docs"
+    total_files = len(log_files)
+    for index, log_file in enumerate(log_files, start=1):
+        print(f'⌛ Processing file {index} of {total_files}: {log_file} ')
+        split_logs_with_overlap(log_file, output_directory, total_files, index)
 
-# 모든 경로 내의 모든 *.log.* 파일을 처리
-directory = "/mnt/c/LogPatternFinder/CromaDB/OpenstackModel/in"
+directory = "/mnt/c/LogPatternFinder/LogEmbeddings/input"
 process_all_log_files(directory)
